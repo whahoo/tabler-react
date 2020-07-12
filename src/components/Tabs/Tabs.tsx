@@ -9,16 +9,26 @@ import "./Tabs.css";
 export interface TabsProps {
   initialTab: string;
   children: React.ReactElement<TabProps>[] | React.ReactElement<TabProps>;
+  onChange?: (selectedTitle: string) => void;
 }
 
-const Tabs = function({ children, initialTab }: TabsProps) {
+const Tabs = function({ children, initialTab, onChange }: TabsProps) {
   const [selectedTitle, setSelectedTitle] = useState(initialTab);
+
+  function _handleOnChange(tabTitle: string) {
+      setSelectedTitle(tabTitle);
+      if(onChange) {
+          onChange(tabTitle);
+      }
+  }
 
   return (
     <React.Fragment>
       <TabbedHeader
         selectedTitle={selectedTitle}
-        stateCallback={setSelectedTitle}
+        stateCallback={_handleOnChange}
+
+        
       >
         {children}
       </TabbedHeader>
