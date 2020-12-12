@@ -3527,8 +3527,9 @@ declare module "components/Tabs/Tabs" {
     export interface TabsProps {
         initialTab: string;
         children: React.ReactElement<TabProps>[] | React.ReactElement<TabProps>;
+        onChange?: (selectedTitle: string) => void;
     }
-    const Tabs: ({ children, initialTab }: TabsProps) => JSX.Element;
+    const Tabs: ({ children, initialTab, onChange }: TabsProps) => JSX.Element;
     export default Tabs;
 }
 declare module "components/Tabs/index" {
