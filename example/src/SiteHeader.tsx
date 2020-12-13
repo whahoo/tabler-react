@@ -67,7 +67,7 @@ const SiteHeader = function() {
       alt="Tabler React"
       imageURL="./demo/brand/tabler.svg"
       navItems={
-        <Nav.Item link={false} className="d-none d-md-flex">
+        <Nav.Item link={false} as="div" className="d-none d-md-flex">
           <Button
             href="https://github.com/tabler/tabler-react"
             target="_blank"

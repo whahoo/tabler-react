@@ -1,4 +1,5 @@
 import React, { HTMLAttributes } from "react";
+import * as icons from '@tabler/icons';
 import cn from "classnames";
 
 export interface IconProps extends HTMLAttributes<HTMLElement> {
@@ -54,18 +55,22 @@ function Icon({
     },
     className
   );
+  const { [`Icon${name.charAt(0).toUpperCase()}${name.slice(1)}`]: Icon } = icons;
   const extraProps = isAriaHidden
     ? {
-        "aria-hidden": true,
-      }
+      "aria-hidden": true,
+    }
     : null;
 
-  return !link ? (
-    <i className={classes} {...rest} />
-  ) : (
-    <a className="icon" {...extraProps} {...rest}>
-      <i className={classes} />
-    </a>
+  return Icon ? (
+    <Icon className={classes} {...rest} />
+  ) : !link ? (
+    <i className={classes} />
+  ) :(
+      <a className="icon" {...extraProps} {...rest}>
+        <i className={classes} />
+      </a>
+      
   );
 }
 

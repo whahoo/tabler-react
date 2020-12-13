@@ -63,9 +63,9 @@ const SiteHeader = ({
       <Container className={align}>
         {children || (
           <React.Fragment>
-            <a className="navbar-toggler" onClick={onMenuToggleClick}>
+            <button className="navbar-toggler" onClick={onMenuToggleClick}>
               <span className="navbar-toggler-icon" />
-            </a>
+            </button>
             <SiteLogo
               className="text-inherit mr-md-3"
               href={href}
@@ -83,12 +83,13 @@ const SiteHeader = ({
               </El.Div>
             )}
             <Nav
-              isMenu={true}
-              className="align-items-center order-1 order-lg-2"
+              isMenu={false}
+              className="flex-row order-md-last"
+              as="div"
             >
               {navItems}
               {notificationsTrayFromProps && (
-                <Nav.Item link={false} className="d-none d-md-flex">
+                <Nav.Item as="div" link={false} className="d-none d-md-flex me-3">
                   <Notification.Tray {...notificationsTrayFromProps} />
                 </Nav.Item>
               )}

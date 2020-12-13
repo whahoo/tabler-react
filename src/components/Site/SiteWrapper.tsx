@@ -20,7 +20,7 @@ export interface SiteWrapperProps {
   navIsSide?: boolean;
 }
 
-const SiteWrapper = function({
+const SiteWrapper = function ({
   header: Header = SiteHeader,
   headerProps = {},
   nav: Nav = SiteNav,
@@ -43,9 +43,9 @@ const SiteWrapper = function({
   return (
     <Page>
       {_isSide && nav}
+      <Header onMenuToggleClick={handleCollapseMobileMenu} {...headerProps} />
+      {!_isSide && nav}
       <Page.Main>
-        <Header onMenuToggleClick={handleCollapseMobileMenu} {...headerProps} />
-        {!_isSide && nav}
         {children}
       </Page.Main>
       {/* <Footer {...footerProps} /> */}

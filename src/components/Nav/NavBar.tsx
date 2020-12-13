@@ -27,9 +27,11 @@ export function NavBar({
     {
       "navbar-side": isSide,
       "navbar-dark": isDark,
+      "navbar-light": !isDark,
       "navbar-right": side === "right",
       [`navbar-expand-${expand}`]: expand,
     },
+    "d-print-none",
     className
   );
   return (

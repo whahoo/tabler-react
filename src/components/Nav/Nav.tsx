@@ -35,7 +35,6 @@ const Nav = function({
   };
 
   const classes = cn(
-    "nav",
     "navbar-nav",
     { "navbar-menu": isMenu, "nav-tabs": tabbed },
     className

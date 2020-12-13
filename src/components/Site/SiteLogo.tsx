@@ -11,22 +11,30 @@ export interface SiteLogoProps extends TablerComponent {
 }
 
 const SiteLogo = ({ className, ...props }: SiteLogoProps) => {
-  const _className = cn("navbar-brand", className);
+  const _className = cn("navbar-brand",
+    "navbar-brand-autodark",
+    "d-none-navbar-horizontal",
+    "pe-0",
+    "pe-md-3",
+    className);
+
   return (
-    <a className={_className} href={props.href} {...props}>
-      <img
-        src={props.src}
-        className="d-none d-md-block navbar-brand-logo"
-        alt={props.alt}
-      />
-      {props.srcSmall && (
-        <img
-          src={props.srcSmall}
-          className="d-md-none navbar-brand-logo"
-          alt={props.alt}
-        />
-      )}
-    </a>
+    <h1 className={_className} {...props}>
+      <a href={props.href}>
+        <img src={props.src} width="110" height="32" alt={props.alt} className="navbar-brand-image" />
+        {
+          props.srcSmall && (
+            <img
+              src={props.srcSmall}
+              className="navbar-brand-logo"
+              alt={props.alt}
+            />
+          )
+        }
+      </a>
+    </h1>
+
+
   );
 };
 

@@ -153,8 +153,7 @@ const navBarItems = [
 const SiteNav = function() {
   return (
     <Site.Nav
-      logoURL="./demo/brand/tabler.svg"
-      isSide={true}
+      isSide={false}
       side="right"
       itemsObjects={navBarItems}
     />

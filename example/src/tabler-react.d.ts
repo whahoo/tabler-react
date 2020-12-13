@@ -2798,12 +2798,12 @@ declare module "components/ContactCard/index" {
     export { ContactCard as default };
 }
 declare module "components/Container" {
-    import "./Container.css";
     import { ELProps } from "helpers/makeHtmlElement";
     import { HTMLPropsWithoutRef } from "types/index";
     export interface ContainerProps extends ELProps, HTMLPropsWithoutRef<HTMLDivElement> {
+        expand?: "xs" | "sm" | "md" | "lg" | "xl" | "fluid";
     }
-    function Container({ children, ...rest }: ContainerProps): JSX.Element;
+    function Container({ expand, children, ...rest }: ContainerProps): JSX.Element;
     export default Container;
 }
 declare module "components/Loader/Loader" {
