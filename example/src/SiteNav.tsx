@@ -131,13 +131,13 @@ const navBarItems = [
   {
     value: "Forms",
     to: "/form-elements",
-    icon: "check-square",
+    icon: "checkbox",
     linkAs: ReactRouterNavLink,
   },
   {
     value: "Gallery",
     to: "/gallery",
-    icon: "image",
+    icon: "photo",
     linkAs: ReactRouterNavLink,
   },
   {

@@ -1,6 +1,14 @@
 import React, { HTMLAttributes } from "react";
-import * as icons from '@tabler/icons';
+import * as svgIcons from "@tabler/icons";
 import cn from "classnames";
+
+const snakeToCamel = (str: string) => str.replace(
+  /([-_][a-z])/g,
+  (group: string) => group.toUpperCase()
+                  .replace('-', '')
+                  .replace('_', '')
+);
+
 
 export interface IconProps extends HTMLAttributes<HTMLElement> {
   /**
@@ -35,7 +43,7 @@ export interface IconProps extends HTMLAttributes<HTMLElement> {
  * Uses the included feathers icon set by default but you can add your own
  */
 function Icon({
-  prefix: prefixFromProps = "fe",
+  prefix: prefixFromProps = "ti",
   name,
   className,
   link,
@@ -55,23 +63,27 @@ function Icon({
     },
     className
   );
-  const { [`Icon${name.charAt(0).toUpperCase()}${name.slice(1)}`]: Icon } = icons;
+
+  const si: { [key:string]: any } = svgIcons;
+  const iconComponentName = snakeToCamel(name);
+  const SvgIcon = si[`Icon${iconComponentName.charAt(0).toUpperCase()}${iconComponentName.slice(1)}`];
+
   const extraProps = isAriaHidden
     ? {
       "aria-hidden": true,
     }
     : null;
 
-  return Icon ? (
-    <Icon className={classes} {...rest} />
-  ) : !link ? (
-    <i className={classes} />
-  ) :(
-      <a className="icon" {...extraProps} {...rest}>
-        <i className={classes} />
-      </a>
-      
-  );
+  return SvgIcon ? (
+    <SvgIcon />) :
+    !link ? (
+      <i className={classes} />
+    ) : (
+        <a className="icon" {...extraProps} {...rest}>
+          <i className={classes} />
+        </a>
+
+      );
 }
 
 /** @component */

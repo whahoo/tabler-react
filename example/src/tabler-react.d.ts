@@ -506,6 +506,7 @@ declare module "types/index" {
 }
 declare module "components/Icon/Icon" {
     import { HTMLAttributes } from "react";
+    import "@tabler/icons/iconfont/tabler-icons.min.css";
     export interface IconProps extends HTMLAttributes<HTMLElement> {
         /**
          * Should this icon be rendered within an <a> tag
