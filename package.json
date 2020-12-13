@@ -1,6 +1,6 @@
 {
   "name": "tabler-react",
-  "version": "2.0.0-alpha.1",
+  "version": "2.0.0-alpha.2",
   "description": "",
   "author": "jonthomp and AaronCoplan",
   "license": "MIT",
@@ -38,9 +38,7 @@
   "lint-staged": {
     "src/**/*.js": "eslint --max-warnings=0"
   },
-  "dependencies": {
-   
-  },
+  "dependencies": {},
   "peerDependencies": {
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
